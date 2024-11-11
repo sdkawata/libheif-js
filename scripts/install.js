@@ -73,7 +73,7 @@ const autoReadStream = async stream => {
     bundle: true,
     minify: true,
     target,
-    external: ['fs', 'path', 'require'],
+    external: ['fs', 'path', 'require', 'crypto'],
     loader: {
       '.wasm': 'binary'
     },
@@ -84,7 +84,8 @@ const autoReadStream = async stream => {
     nodeModulesPolyfillPlugin({
       modules: {
         fs: 'empty',
-        path: 'empty'
+        path: 'empty',
+        crypto: 'empty',
       }
     })
   ];
